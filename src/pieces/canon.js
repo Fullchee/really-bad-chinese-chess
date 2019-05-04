@@ -1,8 +1,8 @@
 import Piece from './piece.js';
 
-export default class Rook extends Piece {
+export default class Canon extends Piece {
   constructor(player){
-    super(player, (player === 1 ? "https://upload.wikimedia.org/wikipedia/commons/2/2e/Xiangqi_rl1.svg" : "https://upload.wikimedia.org/wikipedia/commons/f/f7/Xiangqi_rd1.svg"));
+    super(player, (player === 1 ? "https://upload.wikimedia.org/wikipedia/commons/1/1f/Xiangqi_cl1.svg" : "https://upload.wikimedia.org/wikipedia/commons/4/43/Xiangqi_cd1.svg"));
   }
 
   isMovePossible(src, dest){

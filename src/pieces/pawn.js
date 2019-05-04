@@ -2,7 +2,7 @@ import Piece from './piece.js';
 
 export default class Pawn extends Piece {
   constructor(player){
-    super(player, (player === 1?  "https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg"));
+    super(player, (player === 1 ? "https://upload.wikimedia.org/wikipedia/commons/0/0f/Xiangqi_sl1.svg" : "https://upload.wikimedia.org/wikipedia/commons/0/03/Xiangqi_sd1.svg"));
     // new piece of state!, if in these position, you can move 2!
     this.initialPositions = {
       1: [48, 49, 50, 51, 52, 53, 54, 55],
