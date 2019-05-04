@@ -13,13 +13,15 @@ export default class King extends Piece {
      * @return {boolean} - whether the move is legal or not
      */
     isMovePossible(src, dest) {
-        return (src - 9 === dest ||
+        const possibleSquares = [3,4, 5, 12, 13, 14, 21, 22, 23, 66, 67, 68, 75, 76, 77, 84, 85, 86];
+
+        return possibleSquares.includes(dest) && (src - 9 === dest ||
             src - 8 === dest ||
-            src - 7 === dest ||
+            src - 10 === dest ||
             src + 1 === dest ||
             src + 9 === dest ||
             src + 8 === dest ||
-            src + 7 === dest ||
+            src + 10 === dest ||
             src - 1 === dest);
     }
 
