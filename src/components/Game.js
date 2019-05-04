@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../index.css';
+import '../index.scss';
 import Board from './Board.js';
 import FallenSoldierBlock from './FallenSoldierBlock.js';
 import initialiseChessBoard from '../helpers/board-initialiser.js';

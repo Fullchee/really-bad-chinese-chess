@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../index.css';
+import '../index.scss';
 import Square from './Square.js';
 
 export default class Board extends React.Component {
@@ -11,6 +11,7 @@ export default class Board extends React.Component {
             style={this.props.squares[i] ? this.props.squares[i].style : null}
             shade={squareShade}
             onClick={() => this.props.onClick(i)}
+            number={i}
         />
     }
 

@@ -6,6 +6,7 @@ export default class Advisor extends Piece {
     }
 
     isMovePossible(src, dest) {
+        const possibleSquares = [3, 5, 13, 21, 23];
         return (Math.abs(src - dest) % 9 === 0 || Math.abs(src - dest) % 7 === 0);
     }
 
