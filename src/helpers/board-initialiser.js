@@ -1,37 +1,41 @@
-import Bishop from '../pieces/bishop.js';
+import Elephant from '../pieces/elephant.js';
 import King from '../pieces/king.js';
 import Knight from '../pieces/knight.js';
 import Pawn from '../pieces/pawn.js';
-import Queen from '../pieces/queen.js';
 import Rook from '../pieces/rook.js';
+import Advisor from '../pieces/advisor.js';
 
 export default function initialiseChessBoard() {
-    const squares = Array(64).fill(null);
+    const squares = Array(90).fill(null);
 
-    for (let i = 8; i < 16; i++) {
+    // squares[27] = new Pawn(2);
+    for (let i = 27; i < 36; i += 2) {
         squares[i] = new Pawn(2);
-        squares[i + 40] = new Pawn(1);
+        squares[i + 27] = new Pawn(1);
     }
     squares[0] = new Rook(2);
-    squares[7] = new Rook(2);
-    squares[56] = new Rook(1);
-    squares[63] = new Rook(1);
+    squares[8] = new Rook(2);
+    squares[81] = new Rook(1);
+    squares[89] = new Rook(1);
 
     squares[1] = new Knight(2);
-    squares[6] = new Knight(2);
-    squares[57] = new Knight(1);
-    squares[62] = new Knight(1);
+    squares[7] = new Knight(2);
+    squares[82] = new Knight(1);
+    squares[88] = new Knight(1);
 
-    squares[2] = new Bishop(2);
-    squares[5] = new Bishop(2);
-    squares[58] = new Bishop(1);
-    squares[61] = new Bishop(1);
+    squares[2] = new Elephant(2);
+    squares[6] = new Elephant(2);
+    squares[83] = new Elephant(1);
+    squares[87] = new Elephant(1);
 
-    squares[3] = new Queen(2);
+    squares[3] = new Advisor(2);
     squares[4] = new King(2);
+    squares[5] = new Advisor(2);
 
-    squares[59] = new Queen(1);
-    squares[60] = new King(1);
+    squares[84] = new Advisor(1);
+    squares[85] = new King(1);
+    squares[86] = new Advisor(1);
+
 
     return squares;
 }
