@@ -8,8 +8,8 @@ export default class King extends Piece {
     }
 
     /**
-     * @param {int} src - square number: 1 to 64 or 0 to 63
-     * @param {int} dest - destination square number 1 to 64?
+     * @param {int} src - square number: 0 to 63
+     * @param {int} dest - destination square number 0 to 63
      * @return {boolean} - whether the move is legal or not
      */
     isMovePossible(src, dest) {
