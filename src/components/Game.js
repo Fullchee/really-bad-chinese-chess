@@ -10,12 +10,12 @@ export default class Game extends React.Component {
     super();
     this.state = {
       squares: initialiseChessBoard(),
-      whiteFallenSoldiers: [],
+      redFallenSoldiers: [],
       blackFallenSoldiers: [],
       player: 1,
       sourceSelection: -1,
       status: '',
-      turn: 'white'
+      turn: 'red'
     }
   }
 
@@ -48,7 +48,7 @@ export default class Game extends React.Component {
       else {
 
         const squares = this.state.squares.slice();
-        const whiteFallenSoldiers = this.state.whiteFallenSoldiers.slice();
+        const redFallenSoldiers = this.state.redFallenSoldiers.slice();
         const blackFallenSoldiers = this.state.blackFallenSoldiers.slice();
         const isDestEnemyOccupied = squares[i] ? true : false;
         const isMovePossible = squares[this.state.sourceSelection].isMovePossible(this.state.sourceSelection, i, isDestEnemyOccupied);
@@ -58,7 +58,7 @@ export default class Game extends React.Component {
         if (isMovePossible && isMoveLegal) {
           if (squares[i] !== null) {
             if (squares[i].player === 1) {
-              whiteFallenSoldiers.push(squares[i]);
+              redFallenSoldiers.push(squares[i]);
             }
             else {
               blackFallenSoldiers.push(squares[i]);
@@ -67,11 +67,11 @@ export default class Game extends React.Component {
           squares[i] = squares[this.state.sourceSelection];
           squares[this.state.sourceSelection] = null;
           let player = this.state.player === 1 ? 2 : 1;
-          let turn = this.state.turn === 'white' ? 'black' : 'white';
+          let turn = this.state.turn === 'red' ? 'black' : 'red';
           this.setState({
             sourceSelection: -1,
             squares: squares,
-            whiteFallenSoldiers: whiteFallenSoldiers,
+            redFallenSoldiers: redFallenSoldiers,
             blackFallenSoldiers: blackFallenSoldiers,
             player: player,
             status: '',
@@ -125,7 +125,7 @@ export default class Game extends React.Component {
             <div className="fallen-soldier-block">
 
               {<FallenSoldierBlock
-                whiteFallenSoldiers={this.state.whiteFallenSoldiers}
+                redFallenSoldiers={this.state.redFallenSoldiers}
                 blackFallenSoldiers={this.state.blackFallenSoldiers}
               />
               }

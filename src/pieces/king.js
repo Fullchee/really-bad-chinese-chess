@@ -2,9 +2,9 @@ import Piece from './piece.js';
 
 export default class King extends Piece {
     constructor(player) {
-        const whiteKingURL = "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg";
+        const redKingURL = "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg";
         const blackKingURL = "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg";
-        super(player, (player === 1 ? whiteKingURL : blackKingURL));
+        super(player, (player === 1 ? redKingURL : blackKingURL));
     }
 
     /**
