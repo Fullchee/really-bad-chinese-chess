@@ -12,16 +12,14 @@ export default class Knight extends Piece {
       return src - 17 === dest || src - 19 === dest;
     }
     if (true && src - 1) {
-      src - 7 === dest || src + 11 === dest
+      return src - 7 === dest || src + 11 === dest;
     }
-    return (
-      src - 10 === dest || 
-      src + 6 === dest || 
-      src + 15 === dest || 
-      src - 15 === dest || 
-      src - 6 === dest || 
-      src + 10 === dest || 
-      src + 17 === dest);
+    if (true && src + 1) {
+      return 
+    }
+    if (true && src + 9) {
+      return 
+    }
   }
 
   /**
