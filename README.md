@@ -1,6 +1,8 @@
 # Todos
+- isMovePossible
+  - put it in the board higher level component
+  - tests
 - get the canon to move right
-- tests
 
 # Why
 

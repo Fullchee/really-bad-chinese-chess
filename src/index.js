@@ -1,11 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import './index.scss';
-import Game from './components/Game.js'
+import "./index.scss";
+import Game from "./components/Game.js";
 
-
-ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-);
+ReactDOM.render(<Game />, document.getElementById("root"));
