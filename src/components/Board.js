@@ -5,10 +5,11 @@ import "../index.scss";
 import Square from "./Square.js";
 
 export default class Board extends React.Component {
-  renderSquare(i, squareShade) {
+  renderSquare(i, squareShade, isHighlighted) {
     return (
       <Square
         key={i}
+        className={isHighlighted ? "highlighted" : ""}
         piece={this.props.squares[i]}
         style={this.props.squares[i] ? this.props.squares[i].style : null}
         shade={squareShade}
@@ -27,7 +28,14 @@ export default class Board extends React.Component {
           (isEven(i) && isEven(j)) || (!isEven(i) && !isEven(j))
             ? "light-square"
             : "dark-square";
-        squareRows.push(this.renderSquare(i * 9 + j, squareShade));
+        const square = i * 9 + j;
+        squareRows.push(
+          this.renderSquare(
+            square,
+            squareShade,
+            this.props.highlightedSquares.includes(square)
+          )
+        );
       }
       board.push(
         <div key={`row-${i}`} className="board-row">
@@ -41,8 +49,9 @@ export default class Board extends React.Component {
 }
 
 Board.propTypes = {
-  onClick: PropTypes.any,
-  squares: PropTypes.any
+  highlightedSquares: PropTypes.arrayOf(PropTypes.number),
+  onClick: PropTypes.func,
+  squares: PropTypes.array
 };
 
 function isEven(num) {

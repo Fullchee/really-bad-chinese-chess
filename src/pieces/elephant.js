@@ -15,6 +15,16 @@ export default class Elephant extends Piece {
   }
 
   /**
+   * @param {[int]} squares
+   * @param {int} src
+   * @return {[int]} - list of all possible moves from position src
+   */
+  getAllMoves = (squares, src) => {
+    // TODO:
+    return [];
+  };
+
+  /**
    * get path between src and dest (src and dest exclusive)
    * @param  {num} src
    * @param  {num} dest

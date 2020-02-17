@@ -25,7 +25,6 @@ export default class Canon extends Piece {
       return false;
     }
     if (squareHasEnemy) {
-      debugger;
       const srcToDest = this.getSrcToDestPath(src, dest);
       let middlePieces = 0;
       for (let square of srcToDest) {
@@ -44,6 +43,16 @@ export default class Canon extends Piece {
         (dest >= src - mod && dest < src + diff)
       );
     }
+  };
+
+  /**
+   * @param {[int]} squares
+   * @param {int} src
+   * @return {[int]} - list of all possible moves from position src
+   */
+  getAllMoves = (squares, src) => {
+    // TODO:
+    return [];
   };
 
   /**

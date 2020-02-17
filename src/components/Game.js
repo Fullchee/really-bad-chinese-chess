@@ -15,7 +15,8 @@ export default class Game extends React.Component {
       player: 1,
       sourceSelection: -1,
       status: "",
-      turn: "red"
+      turn: "red",
+      possibleMoves: []
     };
   }
 
@@ -40,11 +41,17 @@ export default class Game extends React.Component {
     const squares = this.state.squares.slice();
     if (!squares[i] || squares[i].player !== this.state.player) {
       this.setState({
-        status: "Wrong player. Choose player " + this.state.player + " pieces."
+        status:
+          "Not that player's turn. Choose player " +
+          this.state.player +
+          " pieces."
       });
       if (squares[i]) {
         // only undo the background on a non null
-        squares[i].style = { ...squares[i].style, backgroundColor: "" };
+        squares[i].style = {
+          ...squares[i].style,
+          backgroundColor: ""
+        };
       }
     } else {
       squares[i].style = {
@@ -53,7 +60,8 @@ export default class Game extends React.Component {
       };
       this.setState({
         status: "Choose destination for the selected piece",
-        sourceSelection: i
+        sourceSelection: i,
+        possibleMoves: squares[i].getAllMoves(squares, i)
       });
     }
   };
@@ -163,6 +171,7 @@ export default class Game extends React.Component {
             <Board
               squares={this.state.squares}
               onClick={i => this.handleClick(i)}
+              highlightedSquares={this.state.possibleMoves || []}
             />
           </div>
           <div className="game-info">
@@ -195,7 +204,8 @@ export default class Game extends React.Component {
                 CC-BY-SA-3.0
               </a>
               , <a href="http://opensource.org/licenses/bsd-license.php">BSD</a>{" "}
-              or <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>],{" "}
+              or <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>
+              ],{" "}
               <a href="https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces">
                 via Wikimedia Commons
               </a>{" "}
