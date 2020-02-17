@@ -12,28 +12,64 @@ export default class Canon extends Piece {
     );
   }
 
-  isMovePossible(src, dest) {
-    // TODO: 4 directions
-    // TODO: get the value of the killable item if it exists
-    if (src < dest) {
-      let horDiff = src % ROW_SIZE;
-      let diff = ROW_SIZE - horDiff;
+  /**
+   *
+   * @return {boolean}
+   */
+  isMovePossible = (src, dest, squareHasEnemy, squares) => {
+    // check if vertical
+    if (src === dest) {
+      return false; // can't move to self
+    }
+    if (!this.isVertical(src, dest) && !this.isHorizontal(src, dest)) {
+      return false;
+    }
+    if (squareHasEnemy) {
+      debugger;
+      const srcToDest = this.getSrcToDestPath(src, dest);
+      let middlePieces = 0;
+      for (let square of srcToDest) {
+        if (squares[square]) {
+          middlePieces++;
+        }
+      }
+      return middlePieces === 1;
+      // check if there's something to skip over
+    } else {
+      // same thing as rook
+      let mod = src % ROW_SIZE;
+      let diff = ROW_SIZE - mod;
       return (
         Math.abs(src - dest) % ROW_SIZE === 0 ||
-        (dest >= src - horDiff && dest < src + diff)
+        (dest >= src - mod && dest < src + diff)
       );
-    } else if (src > dest) {
     }
-    return false; // can't move to self
+  };
+
+  /**
+   * @param {int} src
+   * @param {int} dest
+   * @return {boolean}
+   */
+  isVertical(src, dest) {
+    return src % ROW_SIZE === dest % ROW_SIZE;
+  }
+  /**
+   * @param {int} src
+   * @param {int} dest
+   * @return {boolean}
+   */
+  isHorizontal(src, dest) {
+    return Math.floor(src / ROW_SIZE) === Math.floor(dest / ROW_SIZE);
   }
 
   /**
    * get path between src and dest (src and dest exclusive)
-   * @param  {num} src
-   * @param  {num} dest
-   * @return {[array]}
+   * @param  {int} src
+   * @param  {int} dest
+   * @return {[array]} - array of square numbers from src to dest
    */
-  getSrcToDestPath(src, dest) {
+  getSrcToDestPath = (src, dest) => {
     let path = [],
       pathStart,
       pathEnd,
@@ -57,5 +93,5 @@ export default class Canon extends Piece {
       path.push(i);
     }
     return path;
-  }
+  };
 }

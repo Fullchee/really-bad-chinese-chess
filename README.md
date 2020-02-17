@@ -1,8 +1,13 @@
 # Todos
-- isMovePossible
-  - put it in the board higher level component
-  - tests
-- get the canon to move right
+- set the background to be blue for all possible moves
+- check for checkmate
+  - king is in check
+  - king can't move
+  - no piece can block the check
+- check for stalemate
+  - king can't move
+  - king is not in check
+  - no other piece can move
 
 # Why
 
