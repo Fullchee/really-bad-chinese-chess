@@ -5,7 +5,7 @@ import "../index.scss";
 export default function Square(props) {
   return (
     <button
-      className={"square " + props.shade}
+      className={`square ${props.shade} ${props.highlighted}`}
       onClick={props.onClick}
       style={props.style}
     >

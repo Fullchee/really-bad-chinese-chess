@@ -44,7 +44,8 @@ export default class Game extends React.Component {
         status:
           "Not that player's turn. Choose player " +
           this.state.player +
-          " pieces."
+          " pieces.",
+        possibleMoves: []
       });
       if (squares[i]) {
         // only undo the background on a non null
@@ -80,7 +81,8 @@ export default class Game extends React.Component {
     if (squares[i] && squares[i].player === this.state.player) {
       this.setState({
         status: "Wrong selection. Choose valid source and destination again.",
-        sourceSelection: -1
+        sourceSelection: -1,
+        possibleMoves: []
       });
       return;
     }
@@ -117,12 +119,14 @@ export default class Game extends React.Component {
         blackFallenSoldiers: blackFallenSoldiers,
         player: player,
         status: "",
-        turn: turn
+        turn: turn,
+        possibleMoves: []
       });
     } else {
       this.setState({
         status: "Wrong selection. Choose valid source and destination again.",
-        sourceSelection: -1
+        sourceSelection: -1,
+        possibleMoves: []
       });
     }
   };

@@ -9,7 +9,7 @@ export default class Board extends React.Component {
     return (
       <Square
         key={i}
-        className={isHighlighted ? "highlighted" : ""}
+        highlighted={isHighlighted ? "highlighted" : ""}
         piece={this.props.squares[i]}
         style={this.props.squares[i] ? this.props.squares[i].style : null}
         shade={squareShade}
@@ -17,6 +17,13 @@ export default class Board extends React.Component {
         number={i}
       />
     );
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.highlightedSquares !== prevProps.highlightedSquares) {
+      
+    }
   }
 
   render() {
