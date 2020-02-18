@@ -77,7 +77,13 @@ export default class Game extends React.Component {
       ...squares[this.state.sourceSelection].style,
       backgroundColor: ""
     };
-    // squares[this.state.sourceSelection].style.backgroundColor = null;
+    if (i === this.state.sourceSelection) {
+      this.setState({
+        sourceSelection: -1,
+        possibleMoves: []
+      });
+      return;
+    }
     if (squares[i] && squares[i].player === this.state.player) {
       this.setState({
         status: "Wrong selection. Choose valid source and destination again.",

@@ -18,7 +18,6 @@ export default class Advisor extends Piece {
    * @return {[int]} - list of all possible moves from position src
    */
   getAllMoves = (squares, src) => {
-    const player = squares[src].player;
     return possibleSquares
       .filter(square => {
         return this.isOneDiagonalAway(src, square);
@@ -26,7 +25,7 @@ export default class Advisor extends Piece {
       .filter(square => {
         // can't move to a piece that's the same team
         if (squares[square]) {
-          return squares[square].player !== player;
+          return squares[square].player !== this.player;
         }
         return true;
       });
