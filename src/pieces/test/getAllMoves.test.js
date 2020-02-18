@@ -50,6 +50,13 @@ describe("getAllMoves", () => {
     // squares[13] = new King(2);
     // expect(movesFromPos(13)).toEqual([14]);
   });
+
+  test("Elephant", () => {
+    expect(movesFromPos(83)).toEqual([63, 67]);
+    expect(movesFromPos(2)).toEqual([18, 22]);
+    squares[47] = new Elephant(1);
+    expect(movesFromPos(47)).toEqual([63, 67]);
+  });
   // test("canon", () => {
   //   expect(movesFromPos(64)).toEqual([
   //     73,

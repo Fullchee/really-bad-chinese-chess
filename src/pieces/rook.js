@@ -52,4 +52,19 @@ export default class Rook extends Piece {
     }
     return path;
   }
+
+  /**
+   * @param {[int]} squares
+   * @param {int} src
+   * @return {[int]} - list of all possible moves from position src
+   */
+  getAllMoves = (squares, src) => {
+    let possibleMoves = [];
+    return possibleMoves.filter(pos => {
+      if (squares[pos]) {
+        return squares[pos].player !== this.player;
+      }
+      return true;
+    });
+  };
 }

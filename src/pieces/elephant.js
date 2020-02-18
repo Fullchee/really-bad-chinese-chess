@@ -10,6 +10,7 @@ export default class Elephant extends Piece {
     );
   }
 
+  // TODO: use getAllMoves instead
   isMovePossible(src, dest) {
     return Math.abs(src - dest) % 9 === 0 || Math.abs(src - dest) % 7 === 0;
   }
@@ -20,8 +21,30 @@ export default class Elephant extends Piece {
    * @return {[int]} - list of all possible moves from position src
    */
   getAllMoves = (squares, src) => {
-    // TODO:
-    return [];
+    let possibleMoves = [];
+    const row = Math.floor(src / 9);
+    const col = src % 9;
+    // top left
+    if (row >= 2) {
+      if (col >= 2) possibleMoves.push(src - 20);
+      if (col <= 7) possibleMoves.push(src - 16);
+    }
+    // down
+    if (row <= 7) {
+      if (col >= 2) possibleMoves.push(src + 16);
+      if (col <= 7) possibleMoves.push(src + 20);
+    }
+    // elephants can't cross the river
+    possibleMoves =
+      src < 45
+        ? possibleMoves.filter(pos => pos < 45)
+        : possibleMoves.filter(pos => pos >= 45);
+    return possibleMoves.filter(pos => {
+      if (squares[pos]) {
+        return squares[pos].player !== this.player;
+      }
+      return true;
+    });
   };
 
   /**

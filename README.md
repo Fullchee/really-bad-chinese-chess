@@ -1,4 +1,5 @@
 # Todos
+
 - set the background to be blue for all possible moves
 - check for checkmate
   - king is in check
@@ -8,6 +9,7 @@
   - king can't move
   - king is not in check
   - no other piece can move
+- Kings can't see each other
 
 # Why
 

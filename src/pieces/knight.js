@@ -37,4 +37,18 @@ export default class Knight extends Piece {
   getSrcToDestPath() {
     return [];
   }
+  /**
+   * @param {[int]} squares
+   * @param {int} src
+   * @return {[int]} - list of all possible moves from position src
+   */
+  getAllMoves = (squares, src) => {
+    let possibleMoves = [];
+    return possibleMoves.filter(pos => {
+      if (squares[pos]) {
+        return squares[pos].player !== this.player;
+      }
+      return true;
+    });
+  };
 }
