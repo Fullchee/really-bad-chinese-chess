@@ -71,6 +71,10 @@ describe("getAllMoves", () => {
     squares[65] = new Knight(1);
     expect(movesFromPos(65)).toEqual([76]);
   });
+
+  test("Rook", () => {
+    expect(numSort(movesFromPos(81))).toEqual([63, 72]);
+  });
   // test("canon", () => {
   //   expect(movesFromPos(64)).toEqual([
   //     73,

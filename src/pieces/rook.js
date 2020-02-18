@@ -60,6 +60,27 @@ export default class Rook extends Piece {
    */
   getAllMoves = (squares, src) => {
     let possibleMoves = [];
+    // up
+    let i = src - 9;
+    while (Math.floor(i / 9) > 0 && squares[i] === null) {
+      possibleMoves.push(i);
+      i -= 9;
+    }
+    i = src + 9;
+    while (Math.floor(i / 9) < 9 && squares[i] === null) {
+      possibleMoves.push(i);
+      i += 9;
+    }
+    i = src - 1;
+    while (i % 9 < 8 && squares[i] === null) {
+      possibleMoves.push(i);
+      i -= 1;
+    }
+    i = src + 1;
+    while (i % 9 > 0 && squares[i] === null) {
+      possibleMoves.push(i);
+      i++;
+    }
     return possibleMoves.filter(pos => {
       if (squares[pos]) {
         return squares[pos].player !== this.player;
