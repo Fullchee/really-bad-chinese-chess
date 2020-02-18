@@ -107,7 +107,7 @@ export default class King extends Piece {
         throw new Error("King in an illegal state " + src);
     }
 
-    const [blackKing, whiteKing] = squares.filter(pos => {
+    const [blackKing, redKing] = squares.filter(pos => {
       if (pos) {
         return pos.constructor.name === "King";
       }

@@ -12,6 +12,7 @@ export default class Knight extends Piece {
 
   isMovePossible(src, dest) {
     // TODO: check if the src -- 9 already has a piece
+    // TODO: check that src - 9 is null
     // above
     if (src - 17 === dest || src - 19 === dest) {
       return src - 9; // check if it's not blocked
@@ -44,6 +45,29 @@ export default class Knight extends Piece {
    */
   getAllMoves = (squares, src) => {
     let possibleMoves = [];
+
+    // above
+    if (Math.floor(src / 9) >= 2 && squares[src - 9] === null) {
+      possibleMoves.push(src - 17);
+      if (src - 19 >= 0) possibleMoves.push(src - 19);
+    }
+    // left
+    if (src % 9 >= 2 && squares[src - 1] === null) {
+      if (src - 11 >= 0) possibleMoves.push(src - 11);
+      if (src + 7 < 90) possibleMoves.push(src + 7);
+    }
+    // right
+    if (src % 9 <= 7 && squares[src + 1] === null) {
+      if (src - 7 >= 0) possibleMoves.push(src - 7);
+      if (src + 11 < 90) possibleMoves.push(src + 11);
+    }
+    // below
+    if (src % 9 <= 7 && squares[src + 9] === null) {
+      if (src + 17 < 90) possibleMoves.push(src + 17);
+      if (src + 19 < 90) possibleMoves.push(src + 19);
+    }
+
+    debugger;
     return possibleMoves.filter(pos => {
       if (squares[pos]) {
         return squares[pos].player !== this.player;

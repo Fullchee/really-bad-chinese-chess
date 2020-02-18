@@ -22,6 +22,12 @@ describe("getAllMoves", () => {
     return squares[pos].getAllMoves(squares, pos);
   }
 
+  function numSort(arr) {
+    return arr.sort((a, b) => {
+      return a - b;
+    });
+  }
+
   test("Advisor", () => {
     expect(movesFromPos(84)).toEqual([76]);
     squares[76] = new Advisor(1);
@@ -56,6 +62,14 @@ describe("getAllMoves", () => {
     expect(movesFromPos(2)).toEqual([18, 22]);
     squares[47] = new Elephant(1);
     expect(movesFromPos(47)).toEqual([63, 67]);
+  });
+
+  test("Knight", () => {
+    expect(numSort(movesFromPos(82))).toEqual([63, 65]);
+    squares[22] = new Knight(1);
+    expect(numSort(movesFromPos(22))).toEqual([3, 5, 11, 15, 29, 33]);
+    squares[65] = new Knight(1);
+    expect(movesFromPos(65)).toEqual([76]);
   });
   // test("canon", () => {
   //   expect(movesFromPos(64)).toEqual([

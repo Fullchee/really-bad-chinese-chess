@@ -51,8 +51,13 @@ export default class Canon extends Piece {
    * @return {[int]} - list of all possible moves from position src
    */
   getAllMoves = (squares, src) => {
-    // TODO:
-    return [];
+    const possibleMoves = [];
+    return possibleMoves.filter(pos => {
+      if (squares[pos]) {
+        return squares[pos].player !== this.player;
+      }
+      return true;
+    });
   };
 
   /**

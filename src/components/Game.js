@@ -44,16 +44,9 @@ export default class Game extends React.Component {
         status:
           "Not that player's turn. Choose player " +
           this.state.player +
-          " pieces.",
+          "'s pieces.",
         possibleMoves: []
       });
-      if (squares[i]) {
-        // only undo the background on a non null
-        squares[i].style = {
-          ...squares[i].style,
-          backgroundColor: ""
-        };
-      }
     } else {
       squares[i].style = {
         ...squares[i].style,
