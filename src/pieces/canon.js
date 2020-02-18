@@ -51,7 +51,59 @@ export default class Canon extends Piece {
    * @return {[int]} - list of all possible moves from position src
    */
   getAllMoves = (squares, src) => {
-    const possibleMoves = [];
+    let possibleMoves = [];
+    let jump;
+    // up
+    let i = src - 9;
+    jump = 1;
+    // up
+    while (Math.floor(i / 9) >= 0 && jump >= 0) {
+      debugger;
+      if (jump === 1 && squares[i] === null) possibleMoves.push(i);
+      if (jump === 0 && squares[i] !== null) {
+        possibleMoves.push(i);
+        break;
+      }
+      if (squares[i] !== null) jump -= 1;
+      i -= 9;
+    }
+    // down
+    i = src + 9;
+    jump = 1;
+    while (Math.floor(i / 9) <= 9 && jump >= 0) {
+      if (jump === 1 && squares[i] === null) possibleMoves.push(i);
+      if (jump === 0 && squares[i] !== null) {
+        possibleMoves.push(i);
+        break;
+      }
+      if (squares[i] !== null) jump -= 1;
+      i += 9;
+    }
+    // left
+    i = src - 1;
+    jump = 1;
+    while (i % 9 < 8 && jump >= 0) {
+      if (jump === 1 && squares[i] === null) possibleMoves.push(i);
+      if (jump === 0 && squares[i] !== null) {
+        possibleMoves.push(i);
+        break;
+      }
+      if (squares[i] !== null) jump -= 1;
+      i -= 1;
+    }
+    // right
+    i = src + 1;
+    jump = 1;
+    while (i % 9 > 0 && jump >= 0) {
+      if (jump === 1 && squares[i] === null) possibleMoves.push(i);
+      if (jump === 0 && squares[i] !== null) {
+        possibleMoves.push(i);
+        break;
+      }
+      if (squares[i] !== null) jump -= 1;
+      i++;
+    }
+
     return possibleMoves.filter(pos => {
       if (squares[pos]) {
         return squares[pos].player !== this.player;

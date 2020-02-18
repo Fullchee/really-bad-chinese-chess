@@ -67,7 +67,6 @@ export default class Knight extends Piece {
       if (src + 19 < 90) possibleMoves.push(src + 19);
     }
 
-    debugger;
     return possibleMoves.filter(pos => {
       if (squares[pos]) {
         return squares[pos].player !== this.player;

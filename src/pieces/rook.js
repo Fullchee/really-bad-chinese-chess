@@ -62,12 +62,12 @@ export default class Rook extends Piece {
     let possibleMoves = [];
     // up
     let i = src - 9;
-    while (Math.floor(i / 9) > 0 && squares[i] === null) {
+    while (Math.floor(i / 9) >= 0 && squares[i] === null) {
       possibleMoves.push(i);
       i -= 9;
     }
     i = src + 9;
-    while (Math.floor(i / 9) < 9 && squares[i] === null) {
+    while (Math.floor(i / 9) <= 9 && squares[i] === null) {
       possibleMoves.push(i);
       i += 9;
     }

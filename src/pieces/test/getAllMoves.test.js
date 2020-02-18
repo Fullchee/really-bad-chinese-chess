@@ -75,6 +75,22 @@ describe("getAllMoves", () => {
   test("Rook", () => {
     expect(numSort(movesFromPos(81))).toEqual([63, 72]);
   });
+  test("canon", () => {
+    expect(numSort(movesFromPos(64))).toEqual([
+      1,
+      28,
+      37,
+      46,
+      55,
+      63,
+      65,
+      66,
+      67,
+      68,
+      69,
+      73
+    ]);
+  });
   // test("canon", () => {
   //   expect(movesFromPos(64)).toEqual([
   //     73,
