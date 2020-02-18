@@ -14,6 +14,8 @@
 - Kings can't see each other
   - test case for it
 - on init, spawn random pieces in random places
+- History: undo and redo moves
+- make it look pretty
 
 # Why
 
