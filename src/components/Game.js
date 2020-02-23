@@ -88,7 +88,7 @@ export default class Game extends React.Component {
 
     const redFallenSoldiers = this.state.redFallenSoldiers.slice();
     const blackFallenSoldiers = this.state.blackFallenSoldiers.slice();
-    const isMovePossible = squares[this.state.sourceSelection].isMovePossible(
+    const isMovePossible = squares[this.state.sourceSelection].moveIsGood(
       this.state.sourceSelection,
       i,
       this.squareHasEnemy(i),
