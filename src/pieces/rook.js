@@ -66,20 +66,32 @@ export default class Rook extends Piece {
       possibleMoves.push(i);
       i -= 9;
     }
+    if (this.hasEnemy(squares, i) && Math.floor(i / 9) >= 0) {
+      possibleMoves.push(i);
+    }
     i = src + 9;
     while (Math.floor(i / 9) <= 9 && squares[i] === null) {
       possibleMoves.push(i);
       i += 9;
+    }
+    if (this.hasEnemy(squares, i) && Math.floor(i / 9) <= 9) {
+      possibleMoves.push(i);
     }
     i = src - 1;
     while (i % 9 < 8 && squares[i] === null) {
       possibleMoves.push(i);
       i -= 1;
     }
+    if (this.hasEnemy(squares, i) && i % 9 < 8) {
+      possibleMoves.push(i);
+    }
     i = src + 1;
     while (i % 9 > 0 && squares[i] === null) {
       possibleMoves.push(i);
       i++;
+    }
+    if (this.hasEnemy(squares, i) && i % 9 > 0) {
+      possibleMoves.push(i);
     }
     return possibleMoves.filter(pos => {
       if (squares[pos]) {
@@ -87,5 +99,10 @@ export default class Rook extends Piece {
       }
       return true;
     });
+  };
+  hasEnemy = (squares, i) => {
+    if (squares[i] && squares[i].player !== this.player) {
+      return true;
+    }
   };
 }

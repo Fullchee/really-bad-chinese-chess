@@ -196,7 +196,7 @@ export default class Game extends React.Component {
           </div>
         </div>
 
-        <div className="icons-attribution">
+        {/* <div className="icons-attribution">
           <div>
             {" "}
             <small>
@@ -214,7 +214,7 @@ export default class Game extends React.Component {
               </a>{" "}
             </small>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
