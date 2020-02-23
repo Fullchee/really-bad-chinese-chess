@@ -1,7 +1,6 @@
 {
   "name": "really-bad-chinese-chess",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "node-sass": "^4.13.1",
     "react": "^16.8.6",
@@ -13,7 +12,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "netlify deploy --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
