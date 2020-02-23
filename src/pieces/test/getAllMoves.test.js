@@ -52,9 +52,9 @@ describe("getAllMoves", () => {
   test("King", () => {
     expect(movesFromPos(85)).toEqual([76]);
     // TODO: kings can't see each other
-    // squares[75] = new King(1);
-    // squares[13] = new King(2);
-    // expect(movesFromPos(13)).toEqual([14]);
+    // squares[75] = new King(1); // left
+    // squares[22] = new King(2); // midle
+    // expect(movesFromPos(22)).toEqual([13, 23]);  // should only be able to go right
   });
 
   test("Elephant", () => {
@@ -103,5 +103,7 @@ describe("getAllMoves", () => {
       69,
       73
     ]);
+    squares[22] = new Canon(1);
+    expect(numSort(movesFromPos(22))).toEqual([13, 20, 21, 23, 24]);
   });
 });
