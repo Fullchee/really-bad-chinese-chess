@@ -74,6 +74,19 @@ describe("getAllMoves", () => {
 
   test("Rook", () => {
     expect(numSort(movesFromPos(81))).toEqual([63, 72]);
+    squares[36] = new Rook(1);
+    expect(numSort(movesFromPos(36))).toEqual([
+      27,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ]);
   });
   test("canon", () => {
     expect(numSort(movesFromPos(64))).toEqual([
@@ -91,21 +104,4 @@ describe("getAllMoves", () => {
       73
     ]);
   });
-  // test("canon", () => {
-  //   expect(movesFromPos(64)).toEqual([
-  //     73,
-  //     63,
-  //     65,
-  //     66,
-  //     67,
-  //     68,
-  //     69,
-  //     55,
-  //     46,
-  //     37,
-  //     28,
-  //     2
-  //   ]);
-  //   // squares[65] = new Canon(1);
-  // });
 });
